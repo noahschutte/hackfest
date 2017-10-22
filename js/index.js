@@ -12,6 +12,40 @@ caret.click(function(e) {
 
   box.fadeToggle();
 
+  console.log("CLICKED");
+
+  // $(function getWeather() {
+  //   var url = 'localhost:3000/transactions';
+  //   $.getJSON(url, function(data) {
+  //     console.log("data: ", data);
+  //
+  //   });
+  // });
+
+  // function httpGet() {
+  //   console.log("HERE?");
+  //   var xmlHttp = new XMLHttpRequest();
+  //   xmlHttp.open( "GET", 'www.google.com', false ); // false for synchronous request
+  //   xmlHttp.send( null );
+  //   console.log("xmlHttp.responseText: ", xmlHttp.responseText);
+  //   return xmlHttp.responseText;
+  // }
+
+  function httpGetAsync(theUrl, callback){
+    console.log("HERE!");
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous
+    console.log("2");
+    xmlHttp.withCredentials = false;
+    xmlHttp.send(null);
+  }
+
+  httpGetAsync('https://hackafest.herokuapp.com/transactions')
+
 });
 
 nav.click(function() {
@@ -231,7 +265,7 @@ TweenMax.set('svg', {
   alpha:1
 })
 for(var i = 0; i < allCircles.length; i++){
-  
+
   TweenMax.to(allCircles[i], 2, {
     attr:{cy:'-=' + destArray[i]},
     onUpdate:moveLines,
@@ -240,12 +274,12 @@ for(var i = 0; i < allCircles.length; i++){
     ease:Power4.easeInOut
   })
   	if(allLines[i]){
-      
+
       TweenMax.to(allLines[i], 1, {
         drawSVG:'400',
         delay:i/5,
         ease:Power4.easeInOut
-      })     
+      })
     }
 
     TweenMax.to(allCircles[i], 1, {
@@ -253,7 +287,7 @@ for(var i = 0; i < allCircles.length; i++){
       delay:i/5,
     ease:Power4.easeInOut
    })
-  
+
 }
 
 function moveLines(i){
@@ -263,14 +297,14 @@ function moveLines(i){
     TweenMax.set(allLines[i], {
        attr:{
          'x2':allCircles[i].getAttribute('cx'), 'y2':allCircles[i].getAttribute('cy')
-       }     
+       }
      })
    TweenMax.set(allLines[i], {
        attr:{
          'x1':allCircles[i+1].getAttribute('cx'), 'y1':allCircles[i+1].getAttribute('cy')
-       }     
-     })   
-    
+       }
+     })
+
 
 }
 }
