@@ -16,7 +16,7 @@ caret.click(function(e) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
       if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-        console.log("response: ", xmlHttp.responseText);
+        console.log(JSON.parse(xmlHttp.responseText).transactions.length);
     }
     xmlHttp.open("GET", theUrl, true); // true for asynchronous
     xmlHttp.withCredentials = false;
