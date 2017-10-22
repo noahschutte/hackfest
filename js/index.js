@@ -12,19 +12,6 @@ caret.click(function(e) {
 
   box.fadeToggle();
 
-  function httpGetAsync(theUrl){
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() {
-      if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-        console.log(JSON.parse(xmlHttp.responseText).transactions.length);
-    }
-    xmlHttp.open("GET", theUrl, true); // true for asynchronous
-    xmlHttp.withCredentials = false;
-    xmlHttp.send(null);
-  }
-
-  httpGetAsync('https://hackafest.herokuapp.com/transactions')
-
 });
 
 nav.click(function() {
@@ -58,11 +45,26 @@ var lineChartData = {
 };
 
 window.onload = function() {
-  var ctx1 = document.getElementById("myChart").getContext("2d");
-  window.myLine = new Chart(ctx1).Line(lineChartData, {
+//   var ctx1 = document.getElementById("myChart").getContext("2d");
+//   window.myLine = new Chart(ctx1).Line(lineChartData, {
+//
+//     responsive: true
+//   });
+//
 
-    responsive: true
-  });
+  function httpGetAsync(theUrl){
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+      if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+        console.log(JSON.parse(xmlHttp.responseText).transactions.length);
+        $('.worldpay').text(JSON.parse(xmlHttp.responseText).transactions.length)
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous
+    xmlHttp.withCredentials = false;
+    xmlHttp.send(null);
+  }
+
+  httpGetAsync('https://hackafest.herokuapp.com/transactions')
 };
 
 Chart.defaults.global = {
