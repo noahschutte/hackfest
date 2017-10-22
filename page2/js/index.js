@@ -35,8 +35,8 @@ var allLines = document.getElementsByTagName('line');
 
 var destArray = [15,52,28,170,105,93,44, 122, 179, 170, 220];
 Chart.defaults.global.responsive = true;
-Chart.defaults.global.maintainAspectRatio = false;
-Chart.defaults.global.animation = false;
+Chart.defaults.global.maintainAspectRatio = true;
+Chart.defaults.global.animation = true;
 var data = {
   //Noah change this
   labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September"],
