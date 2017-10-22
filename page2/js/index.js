@@ -48,7 +48,7 @@ var data = {
     pointStrokeColor: "#fff",
     pointHighlightFill: "#fff",
     pointHighlightStroke: "rgba(220,220,220,1)",
-    data: [6502, 5908, 8000, 8100, 5611, 5525, 4045, 2220, 3800]
+    data: [5502, 5908, 6500, 8100, 8311, 7625, 6445, 5220, 4800]
     //  //Noah change this
   }, {
     //  //Noah change this
@@ -59,7 +59,7 @@ var data = {
     pointStrokeColor: "#fff",
     pointHighlightFill: "#fff",
     pointHighlightStroke: "rgba(151,187,205,1)",
-    data: [2820, 4833, 4023, 1900, 8600, 2700, 9110, 5532, 4805]
+    data: [5902, 6208, 6700, 8000, 8711, 7925, 7045, 6220, 5800]
     //Noah change this
   }]
 };
@@ -74,7 +74,7 @@ var data2 = {
     pointStrokeColor: "#fff",
     pointHighlightFill: "#fff",
     pointHighlightStroke: "rgba(220,220,220,1)",
-    data: [1000, 2000, 8000, 8100, 5611, 5525, 4045, 2220, 3800]
+    data: [55, 59, 65, 81, 83, 76, 64, 52, 48]
     //  //Noah change this
   }, {
     //  //Noah change this
@@ -85,7 +85,7 @@ var data2 = {
     pointStrokeColor: "#fff",
     pointHighlightFill: "#fff",
     pointHighlightStroke: "rgba(151,187,205,1)",
-    data: [1000, 2000, 4023, 1900, 8600, 2700, 9110, 5532, 4805]
+    data: [52, 69, 75, 80, 82, 76, 71, 69, 55]
     //Noah change this
   }]
 };
@@ -96,7 +96,7 @@ var myLineChart = new Chart(ctx).Line(data, {
   showScale: true,
   bezierCurveTension: 0.45,
   datasetStrokeWidth: 3,
-  multiTooltipTemplate: "<%= value %>$",
+  multiTooltipTemplate: "$<%= value %>",
   pointHitDetectionRadius: 60,
 });
 var myLineChart2 = new Chart(ctx2).Line(data2, {
@@ -104,7 +104,7 @@ var myLineChart2 = new Chart(ctx2).Line(data2, {
   showScale: true,
   bezierCurveTension: 0.45,
   datasetStrokeWidth: 3,
-  multiTooltipTemplate: "<%= value %>$",
+  multiTooltipTemplate: "<%= value %>",
   pointHitDetectionRadius: 60,
 });
 
