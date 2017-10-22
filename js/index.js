@@ -12,39 +12,18 @@ caret.click(function(e) {
 
   box.fadeToggle();
 
-  console.log("CLICKED");
-
-  // $(function getWeather() {
-  //   var url = 'localhost:3000/transactions';
-  //   $.getJSON(url, function(data) {
-  //     console.log("data: ", data);
-  //
-  //   });
-  // });
-
-  // function httpGet() {
-  //   console.log("HERE?");
-  //   var xmlHttp = new XMLHttpRequest();
-  //   xmlHttp.open( "GET", 'www.google.com', false ); // false for synchronous request
-  //   xmlHttp.send( null );
-  //   console.log("xmlHttp.responseText: ", xmlHttp.responseText);
-  //   return xmlHttp.responseText;
-  // }
-
-  function httpGetAsync(theUrl, callback){
-    console.log("HERE!");
+  function httpGetAsync(theUrl){
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-            callback(xmlHttp.responseText);
+      if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+        console.log("response: ", xmlHttp.responseText);
     }
     xmlHttp.open("GET", theUrl, true); // true for asynchronous
-    console.log("2");
     xmlHttp.withCredentials = false;
     xmlHttp.send(null);
   }
 
-  httpGetAsync('https://hackafest.herokuapp.com/transactions')
+  httpGetAsync('http://localhost:3000/transactions')
 
 });
 
