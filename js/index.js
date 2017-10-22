@@ -23,7 +23,7 @@ caret.click(function(e) {
     xmlHttp.send(null);
   }
 
-  httpGetAsync('http://localhost:3000/transactions')
+  httpGetAsync('https://hackafest.herokuapp.com/transactions')
 
 });
 
