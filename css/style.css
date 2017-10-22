@@ -33,6 +33,7 @@ header {
 .space-wrapper {
   margin: 10px 10px;
   color: #FFF;
+  text-align:center;
 }
 
 .account {
@@ -288,5 +289,5 @@ canvas {
   .fa.fa-bars {
     visibility: visible;
   }
- 
+
 }
